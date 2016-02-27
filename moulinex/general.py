@@ -1,8 +1,8 @@
 import bpy
 
-def setup():
+def setup(samples=100):
     bpy.context.scene.render.engine = 'CYCLES'
-    bpy.context.scene.cycles.samples = 100
+    bpy.context.scene.cycles.samples = samples
     bpy.context.scene.render.tile_x = 128
     bpy.context.scene.render.tile_y = 128
 
@@ -15,3 +15,8 @@ def setup():
             bpy.data.objects.remove(obj)
         except:
             print('already out of data')
+
+
+def bake():
+    bpy.ops.ptcache.free_bake_all()
+    bpy.ops.ptcache.bake_all()

@@ -1,16 +1,18 @@
 import bpy
 import mathutils
+from math import radians
 
 from moulinex.material import add_mix_material, add_material
 
 
-def add_ball(location=(0, 15, 1)):
+def add_ball(location=(0, 2, 1), material=add_mix_material,
+             color=(0.8, 0.8, 0.8, 0.9)):
     bpy.ops.mesh.primitive_uv_sphere_add(
-        location=location,
+        location=location
         )
     bpy.ops.object.shade_smooth()
     bpy.ops.rigidbody.object_add()
-    add_mix_material(bpy.context.active_object, 'Glossy Mix')
+    material(bpy.context.active_object, 'Ball Material', color=color)
     return bpy.context.active_object
 
 
@@ -27,33 +29,13 @@ def passive_underground():
     return mesh
 
 
-def add_modifier(bobj, direction, amount, size, modifier='ARRAY', height=0):
-    for obj in bpy.data.objects:
-        obj.select = False
-
-    bpy.context.scene.objects.active = bobj
-    bobj.select = True
-    bpy.ops.object.modifier_add(type=modifier)
-
-    modifier = bobj.modifiers[0]
-    modifier.use_relative_offset = True
-    modifier.relative_offset_displace = mathutils.Vector((0, 0, 0))
-    modifier.relative_offset_displace[direction] = size + 1
-
-    if direction == 1:
-        new_direction = modifier.relative_offset_displace[direction] * - 1
-        modifier.relative_offset_displace[direction] = new_direction
-    modifier.count = amount
-    bpy.ops.object.modifier_apply(apply_as='DATA', modifier=modifier.name)
-
-    bpy.context.scene.objects.active = bobj
-    # seperate parts
-    bpy.ops.object.mode_set(mode='EDIT')
-    bpy.ops.mesh.separate(type='LOOSE')
-
-    # back to object mode set gravity center
-    bpy.ops.object.mode_set(mode='OBJECT')
-    bpy.ops.object.origin_set(type='ORIGIN_GEOMETRY')
+def create_room():
+    wall = passive_underground()
+    wall.rotation_euler.rotate_axis('Y', radians(90))
+    wall.location.x = -19
+    wall2 = passive_underground()
+    wall2.location.y = 19
+    wall2.rotation_euler.rotate_axis('X', radians(90))
 
 
 def duplicate_object(scene, name, copyobj):

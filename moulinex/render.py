@@ -2,9 +2,14 @@ import bpy
 import os
 
 
-def render_to_still(file_name='out.png', file_path='./'):
+def render_to_still(file_name='out', file_path='./', frame=0):
+    file_pattern = '{}_{1:3d}.png'
+    bpy.context.scene.frame_set(frame)
     bpy.context.scene.render.image_settings.file_format = 'PNG'
-    bpy.context.scene.render.filepath = os.path.join(file_path, file_name)
+    bpy.context.scene.render.filepath = os.path.join(
+        file_path,
+        file_pattern.format(file_name, frame)
+    )
     bpy.ops.render.render(
         animation=False,
         write_still=True)
