@@ -28,6 +28,7 @@ def main():
 
     camera.create_dof_camera()
     general.bake()
+    # render.render_to_vid()
     render.render_to_still(frame=100)
 
 main()

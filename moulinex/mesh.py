@@ -7,6 +7,14 @@ from moulinex.material import add_mix_material, add_material
 
 def add_ball(location=(0, 2, 1), material=add_mix_material,
              color=(0.8, 0.8, 0.8, 0.9)):
+    """Add a rigid body ball to the scene.
+
+    Keyword arguments:
+    location -- 3d vector that expects the location in x, y, z format.
+    material function -- which material function should be run to add a material
+                         to the object. Defaults to the 'plastic' material.
+    color -- 4 dimensional vector RGBA style (red, green, blue, alpha)
+    """
     bpy.ops.mesh.primitive_uv_sphere_add(
         location=location
         )
@@ -17,6 +25,9 @@ def add_ball(location=(0, 2, 1), material=add_mix_material,
 
 
 def passive_underground():
+    """Add a plane that is large enough to contain most simple scenes.
+    Scene is a passive rigid body, so stuff doesn't fall throuh in physics mode.
+    """
     bpy.ops.mesh.primitive_plane_add(location=(0, 0, 0))
     bpy.ops.rigidbody.objects_add()
     mesh = bpy.context.active_object
@@ -30,6 +41,7 @@ def passive_underground():
 
 
 def create_room():
+    """Add more passive planes, but now set them up like a 'room'"""
     wall = passive_underground()
     wall.rotation_euler.rotate_axis('Y', radians(90))
     wall.location.x = -19
@@ -39,6 +51,13 @@ def create_room():
 
 
 def duplicate_object(scene, name, copyobj):
+    """Duplicate a blender object (e.g. mesh) and add it to the scene.
+
+    Arguments:
+    scene -- which scene you want to add it to.
+    name -- name you want the object to have
+    copyobj -- mesh you want to duplicate
+    """
 
     # Create new mesh
     mesh = bpy.data.meshes.new(name)

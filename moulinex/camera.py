@@ -2,16 +2,18 @@ import bpy
 
 
 def create_dof_camera(dof_object=None):
-    # Add a camera fish eye.
-    # cam_loc = mathutils.Vector((15, -5, 5))
+    """Create a 'depth-of-field'-camera.
 
+    Keyword arguments:
+    dof_object -- the object that should  be in focus
+
+    Returns: camera object
+    """
     bpy.ops.object.camera_add(
         view_align=True,
         location=(22, -17, 15),
         rotation=(0, 0, 0))
     camera = bpy.context.active_object
-    # Euler((1.1093189716339111, 0.010816991329193115,
-    # 0.8149281740188599), 'XYZ')
     camera.rotation_euler[0] = 1.1
     camera.rotation_euler[1] = 0
     camera.rotation_euler[2] = 0.8
@@ -24,19 +26,20 @@ def create_dof_camera(dof_object=None):
 
     # Activate camera
     bpy.context.scene.camera = camera
+    return camera
 
 
 def create_fish_eye():
-    # Add a camera fish eye.
-    # cam_loc = mathutils.Vector((15, -5, 5))
+    """Create a fish eye camera as active camera
+
+    Returns: camera object
+    """
     bpy.ops.object.camera_add(
         view_align=True,
         location=(15, -5, 5),
         rotation=(0, 0, 0)
         )
     camera = bpy.context.active_object
-    # Euler((1.1093189716339111,
-    # 0.010816991329193115, 0.8149281740188599), 'XYZ')
     camera.rotation_euler[0] = 1.1
     camera.rotation_euler[1] = 0
     camera.rotation_euler[2] = 0.8
@@ -48,3 +51,4 @@ def create_fish_eye():
 
     # Activate camera
     bpy.context.scene.camera = camera
+    return camera

@@ -3,7 +3,11 @@ import mathutils
 
 
 class Modifier(object):
+    """Small (perhaps redundant) class for dealing with modifiers.
 
+    Arguments:
+    blender_object -- the blender object you want this to be applied to.
+    """
     def __init__(self, blender_object):
         self.blender_object = blender_object
         self.name = ''

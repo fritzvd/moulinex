@@ -8,6 +8,18 @@ def add_mix_material(
     shader2='ShaderNodeBsdfGlossy',
     color=(0.8, 0.2, 0.216, 0.9)
 ):
+    """Add material that mixes different shaders.
+    The most common mix shader I use, is the one that most resembles opaque
+    plastic. It uses a Glossy and a Diffuse shader with Fresnel as a fraction
+    input.
+
+    Keyword arguments:
+    bobj -- blender object you want to apply the material to.
+    name -- name of the material.
+    shader1 -- first input for the mix shader - Defaults to DiffuseBSFD
+    shader2 -- second input for the mix shader - Defaults to GlossyBSFD
+    color -- 4 dimensional vector RGBA style (red, green, blue, alpha)
+    """
     FRESNEL = 'ShaderNodeFresnel'
     material = bpy.data.materials.new(name=name)
     material.use_nodes = True
@@ -38,6 +50,14 @@ def add_mix_material(
 
 def add_material(bobj, name,
                  shader='ShaderNodeBsdfDiffuse', color=(0.8, 0.8, 0.8, 0.9)):
+    """Adds a 'simple' shader to the blender object you pass it.
+
+    Keyword arguments:
+    bobj -- blender object you want to apply the material to.
+    name -- name of the material.
+    shader -- Defaults to DiffuseBSFD
+    color -- 4 dimensional vector RGBA style (red, green, blue, alpha)
+    """
     # Create a new material
     material = bpy.data.materials.new(name=name)
     material.use_nodes = True
