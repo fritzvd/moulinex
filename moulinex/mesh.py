@@ -1,3 +1,9 @@
+"""
+Helpers for meshes. Makes it easy to add meshes with physics.
+
+Functions return the mesh that you add.
+"""
+
 import bpy
 import mathutils
 from math import radians

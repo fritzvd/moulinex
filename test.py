@@ -13,7 +13,7 @@ def main():
     mesh.create_room()
     light.create_light(scale=(20, 20, 20), location=(0, 0, 20))
 
-    ball = mesh.add_ball(color=colors.BLUE)
+    ball = mesh.add_ball(color=colors.BLUE, active=False)
     modifiers = []
     for i in range(0, 3):
         ar_mod = modifier.Modifier(ball)
@@ -27,8 +27,8 @@ def main():
     modifiers[0].origin_to_geometry()
 
     camera.create_dof_camera()
-    general.bake()
+    # general.bake()
     # render.render_to_vid()
-    render.render_to_still(frame=100)
+    # render.render_to_still(frame=100)
 
 main()

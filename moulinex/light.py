@@ -1,3 +1,9 @@
+"""
+Lights in Blender Renderer and Cycles are very different.
+
+The lights in here, work well with the Cycles renderer.
+"""
+
 import bpy
 import mathutils
 

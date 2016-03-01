@@ -1,3 +1,10 @@
+"""
+Cameras that can be added to the scene quickly.
+
+- Depth-of-field camera
+- Fisheye camera
+"""
+
 import bpy
 
 

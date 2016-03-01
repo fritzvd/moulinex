@@ -1,3 +1,12 @@
+"""
+A number of materials that can be used with the cycles renderer. These are all
+node-based shaders.
+
+* add_mix_material - adds a mix shader, as default a plastic like glossy shader
+* add_material - adds a material with a name or as default: DiffuseBSFD
+
+"""
+
 import bpy
 
 

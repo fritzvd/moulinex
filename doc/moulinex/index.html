@@ -1011,52 +1011,70 @@ table {
       
   
     <div class="desc"><p>Cameras that can be added to the scene quickly.</p>
-<p>-- Depth-of-field camera
--- Fisheye camera</p></div>
+<ul>
+<li>Depth-of-field camera</li>
+<li>Fisheye camera</li>
+</ul></div>
 
       </div>
       <div class="item">
       <p class="name"><a href="colors.m.html">moulinex.colors</a></p>
       
   
-    <div class="desc"><p>This file doesn't really make sense yet. But I can imagine adding more colors
-here.</p></div>
+    <div class="desc"><p>Here you will find colors that can be used for the shaders.</p></div>
 
       </div>
       <div class="item">
       <p class="name"><a href="general.m.html">moulinex.general</a></p>
       
   
+    <div class="desc"><p>Helper functions that don't belong anywhere else.</p>
+<ul>
+<li>bake</li>
+<li>setup</li>
+</ul></div>
 
       </div>
       <div class="item">
       <p class="name"><a href="light.m.html">moulinex.light</a></p>
       
   
+    <div class="desc"><p>Lights in Blender Renderer and Cycles are very different.</p>
+<p>The lights in here, work well with the Cycles renderer.</p></div>
 
       </div>
       <div class="item">
       <p class="name"><a href="material.m.html">moulinex.material</a></p>
       
   
+    <div class="desc"><p>A number of materials that can be used with the cycles renderer. These are all
+node-based shaders.</p>
+<ul>
+<li>add_mix_material - adds a mix shader, as default a plastic like glossy shader</li>
+<li>add_material - adds a material with a name or as default: DiffuseBSFD</li>
+</ul></div>
 
       </div>
       <div class="item">
       <p class="name"><a href="mesh.m.html">moulinex.mesh</a></p>
       
   
+    <div class="desc"><p>Helpers for meshes. Makes it easy to add meshes with physics.</p>
+<p>Functions return the mesh that you add.</p></div>
 
       </div>
       <div class="item">
       <p class="name"><a href="modifier.m.html">moulinex.modifier</a></p>
       
   
+    <div class="desc"><p>Exposes an API to add modifiers to your objects.</p></div>
 
       </div>
       <div class="item">
       <p class="name"><a href="render.m.html">moulinex.render</a></p>
       
   
+    <div class="desc"><p>Functions to render the scene. Render a still, or video with ease.</p></div>
 
       </div>
   </section>

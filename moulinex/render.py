@@ -1,3 +1,7 @@
+"""
+Functions to render the scene. Render a still, or video with ease.
+"""
+
 import bpy
 import os
 

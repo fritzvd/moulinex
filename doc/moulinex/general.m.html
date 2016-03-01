@@ -4,7 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
     <title>moulinex.general API documentation</title>
-    <meta name="description" content="" />
+    <meta name="description" content="Helper functions that don't belong anywhere else.
+
+* bake
+* setup" />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -992,11 +995,22 @@ table {
 
   <header id="section-intro">
   <h1 class="title"><span class="name">moulinex.general</span> module</h1>
-  
+  <p>Helper functions that don't belong anywhere else.</p>
+<ul>
+<li>bake</li>
+<li>setup</li>
+</ul>
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-moulinex.general', this);">Show source &equiv;</a></p>
   <div id="source-moulinex.general" class="source">
-    <pre><code>import bpy
+    <pre><code>"""
+Helper functions that don't belong anywhere else.
+
+* bake
+* setup
+"""
+
+import bpy
 
 def setup(samples=100):
     """Setup a blender scene, with some preferred defaults.

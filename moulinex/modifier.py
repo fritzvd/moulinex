@@ -1,3 +1,7 @@
+"""
+Exposes an API to add modifiers to your objects.
+"""
+
 import bpy
 import mathutils
 
@@ -27,7 +31,7 @@ class Modifier(object):
         bpy.context.scene.objects.active = bobj
         bobj.select = True
         bpy.ops.object.modifier_add(type=modifier)
-        self.modifier = bobj.modifiers[0]
+        self.modifier = bobj.modifiers['Array']
         self.name = self.modifier.name
         return self
 

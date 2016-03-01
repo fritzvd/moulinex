@@ -4,7 +4,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
     <title>moulinex.mesh API documentation</title>
-    <meta name="description" content="" />
+    <meta name="description" content="Helpers for meshes. Makes it easy to add meshes with physics.
+
+Functions return the mesh that you ad..." />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -994,11 +996,18 @@ table {
 
   <header id="section-intro">
   <h1 class="title"><span class="name">moulinex.mesh</span> module</h1>
-  
+  <p>Helpers for meshes. Makes it easy to add meshes with physics.</p>
+<p>Functions return the mesh that you add.</p>
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-moulinex.mesh', this);">Show source &equiv;</a></p>
   <div id="source-moulinex.mesh" class="source">
-    <pre><code>import bpy
+    <pre><code>"""
+Helpers for meshes. Makes it easy to add meshes with physics.
+
+Functions return the mesh that you add.
+"""
+
+import bpy
 import mathutils
 from math import radians
 
@@ -1006,7 +1015,7 @@ from moulinex.material import add_mix_material, add_material
 
 
 def add_ball(location=(0, 2, 1), material=add_mix_material,
-             color=(0.8, 0.8, 0.8, 0.9), active=True):
+             color=(0.8, 0.8, 0.8, 0.9)):
     """Add a rigid body ball to the scene.
 
     Keyword arguments:
@@ -1019,14 +1028,9 @@ def add_ball(location=(0, 2, 1), material=add_mix_material,
         location=location
         )
     bpy.ops.object.shade_smooth()
-    # bpy.ops.rigidbody.object_add()
-    bpy.ops.object.modifier_add(type='FLUID_SIMULATION')
-    mesh = bpy.context.active_object
-    mesh.modifiers['Fluidsim'].settings.type = 'OBSTACLE'
-    # if active is False:
-    #     mesh.rigid_body.type = 'PASSIVE'
+    bpy.ops.rigidbody.object_add()
     material(bpy.context.active_object, 'Ball Material', color=color)
-    return mesh
+    return bpy.context.active_object
 
 
 def passive_underground():
@@ -1091,7 +1095,7 @@ def duplicate_object(scene, name, copyobj):
       
   <div class="item">
     <div class="name def" id="moulinex.mesh.add_ball">
-    <p>def <span class="ident">add_ball</span>(</p><p>location=(0, 2, 1), material=&lt;function add_mix_material at 0x7f6b341eb1e0&gt;, color=(0.8, 0.8, 0.8, 0.9), active=True)</p>
+    <p>def <span class="ident">add_ball</span>(</p><p>location=(0, 2, 1), material=&lt;function add_mix_material at 0x7f4375ce50d0&gt;, color=(0.8, 0.8, 0.8, 0.9))</p>
     </div>
     
 
@@ -1107,7 +1111,7 @@ color -- 4 dimensional vector RGBA style (red, green, blue, alpha)</p></div>
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-moulinex.mesh.add_ball', this);">Show source &equiv;</a></p>
   <div id="source-moulinex.mesh.add_ball" class="source">
     <pre><code>def add_ball(location=(0, 2, 1), material=add_mix_material,
-             color=(0.8, 0.8, 0.8, 0.9), active=True):
+             color=(0.8, 0.8, 0.8, 0.9)):
     """Add a rigid body ball to the scene.
 
     Keyword arguments:
@@ -1120,14 +1124,9 @@ color -- 4 dimensional vector RGBA style (red, green, blue, alpha)</p></div>
         location=location
         )
     bpy.ops.object.shade_smooth()
-    # bpy.ops.rigidbody.object_add()
-    bpy.ops.object.modifier_add(type='FLUID_SIMULATION')
-    mesh = bpy.context.active_object
-    mesh.modifiers['Fluidsim'].settings.type = 'OBSTACLE'
-    # if active is False:
-    #     mesh.rigid_body.type = 'PASSIVE'
+    bpy.ops.rigidbody.object_add()
     material(bpy.context.active_object, 'Ball Material', color=color)
-    return mesh
+    return bpy.context.active_object
 </code></pre>
   </div>
 </div>

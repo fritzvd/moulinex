@@ -1,3 +1,10 @@
+"""
+Helper functions that don't belong anywhere else.
+
+* bake
+* setup
+"""
+
 import bpy
 
 def setup(samples=100):
