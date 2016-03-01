@@ -4,7 +4,9 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
     <title>moulinex.light API documentation</title>
-    <meta name="description" content="" />
+    <meta name="description" content="Lights in Blender Renderer and Cycles are very different.
+
+The lights in here, work well with the Cy..." />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -991,11 +993,18 @@ table {
 
   <header id="section-intro">
   <h1 class="title"><span class="name">moulinex.light</span> module</h1>
-  
+  <p>Lights in Blender Renderer and Cycles are very different.</p>
+<p>The lights in here, work well with the Cycles renderer.</p>
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-moulinex.light', this);">Show source &equiv;</a></p>
   <div id="source-moulinex.light" class="source">
-    <pre><code>import bpy
+    <pre><code>"""
+Lights in Blender Renderer and Cycles are very different.
+
+The lights in here, work well with the Cycles renderer.
+"""
+
+import bpy
 import mathutils
 
 from moulinex.material import add_material

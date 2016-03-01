@@ -4,7 +4,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1" />
 
     <title>moulinex.material API documentation</title>
-    <meta name="description" content="" />
+    <meta name="description" content="A number of materials that can be used with the cycles renderer. These are all
+node-based shaders.
+
+..." />
 
   <link href='http://fonts.googleapis.com/css?family=Source+Sans+Pro:400,300' rel='stylesheet' type='text/css'>
   
@@ -992,11 +995,25 @@ table {
 
   <header id="section-intro">
   <h1 class="title"><span class="name">moulinex.material</span> module</h1>
-  
+  <p>A number of materials that can be used with the cycles renderer. These are all
+node-based shaders.</p>
+<ul>
+<li>add_mix_material - adds a mix shader, as default a plastic like glossy shader</li>
+<li>add_material - adds a material with a name or as default: DiffuseBSFD</li>
+</ul>
   
   <p class="source_link"><a href="javascript:void(0);" onclick="toggle('source-moulinex.material', this);">Show source &equiv;</a></p>
   <div id="source-moulinex.material" class="source">
-    <pre><code>import bpy
+    <pre><code>"""
+A number of materials that can be used with the cycles renderer. These are all
+node-based shaders.
+
+* add_mix_material - adds a mix shader, as default a plastic like glossy shader
+* add_material - adds a material with a name or as default: DiffuseBSFD
+
+"""
+
+import bpy
 
 
 def add_mix_material(
