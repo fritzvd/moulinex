@@ -41,9 +41,16 @@ Starting a project with moulinex can be done as follows. Start a script in the r
 e.g. call it playing_with_moulinex.py
 
 ```python
+import os
+import sys
+
 from moulinex import general
 from moulinex import mesh
 from moulinex import camera
+
+dir_path = os.path.dirname(os.path.realpath(__file__))
+# sorry about this
+sys.path.append("{}/moulinex".format(dir_path))
 
 general.setup() # removes all default objects and sets renderer to 'cycles'
 mesh.passive_underground() # creates a passive underground for a physics world
